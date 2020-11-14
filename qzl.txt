@@ -1,1 +1,1 @@
-{"qzl" : "18" , "sara" : "14" , "ali" : "20"}
+{"name" : "qzl" , "name" : "ali" , "name" : "sara" , "age" : "18" , "age" : "12" , "age" : "15"}
