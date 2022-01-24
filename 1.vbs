@@ -60,7 +60,7 @@ Function Save(Data)
     'Get current user name  
     UserName = objshell.ExpandEnvironmentStrings("%UserName%")  
     'Create a text file on desktop  
-    fName = "C:\Users\" & UserName & "\Desktop\WindowsKeyInfo.txt" 
+    fName = "WindowsKeyInfo.txt" 
     Set fso = CreateObject("Scripting.FileSystemObject") 
     Set txt = fso.CreateTextFile(fName) 
     txt.Writeline Data 
