@@ -1,5 +1,5 @@
 Set WshShell = CreateObject("WScript.Shell")
-Wscript.Echo ConvertToKey(WshShell.RegRead("HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\DigitalProductId"))
+printf ConvertToKey(WshShell.RegRead("HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\DigitalProductId"))
 
 Function ConvertToKey(Key)
 Const KeyOffset = 52
