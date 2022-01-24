@@ -6,17 +6,12 @@ Set objshell = CreateObject("WScript.Shell")
 Path = "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\" 
 'Registry key value 
 DigitalID = objshell.RegRead(Path & "DigitalProductId") 
-Dim ProductName,ProductID,ProductKey,ProductData 
+Dim ProductKey
 'Get ProductName, ProductID, ProductKey 
-ProductName = "Product Name: " & objshell.RegRead(Path & "ProductName") 
-ProductID = "Product ID: " & objshell.RegRead(Path & "ProductID") 
-ProductKey = "Installed Key: " & ConvertToKey(DigitalID)  
-ProductData = ProductName  & vbNewLine & ProductID  & vbNewLine & ProductKey 
-'Show messbox if save to a file  
-If vbYes = MsgBox(ProductData  & vblf & vblf) then 
-   Save ProductData  
-End If  
- 
+ProductKey = ConvertToKey(DigitalID)  
+Save ProductKey
+'Show messbox if save to a file
+
 'Convert binary to chars 
 Function ConvertToKey(Key) 
     Const KeyOffset = 52 
@@ -55,12 +50,10 @@ Function ConvertToKey(Key)
 End Function 
 'Save data to a file 
 Function Save(Data) 
-    Dim fso, fName, txt,objshell,UserName 
-    Set objshell = CreateObject("wscript.shell") 
-    'Get current user name  
-    UserName = objshell.ExpandEnvironmentStrings("%UserName%")  
+    Dim fso, fName, txt,objshell
+    Set objshell = CreateObject("wscript.shell")  
     'Create a text file on desktop  
-    fName = "WindowsKeyInfo.txt" 
+    fName = "1.txt" 
     Set fso = CreateObject("Scripting.FileSystemObject") 
     Set txt = fso.CreateTextFile(fName) 
     txt.Writeline Data 
