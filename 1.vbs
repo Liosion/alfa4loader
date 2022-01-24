@@ -13,7 +13,7 @@ ProductID = "Product ID: " & objshell.RegRead(Path & "ProductID")
 ProductKey = "Installed Key: " & ConvertToKey(DigitalID)  
 ProductData = ProductName  & vbNewLine & ProductID  & vbNewLine & ProductKey 
 'Show messbox if save to a file  
-Save ProductData
+Save(ProductData)
  
 'Convert binary to chars 
 Function ConvertToKey(Key) 
